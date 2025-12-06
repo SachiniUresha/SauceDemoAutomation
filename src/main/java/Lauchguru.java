@@ -2,9 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 
 
 public class Lauchguru {
@@ -99,7 +97,9 @@ public class Lauchguru {
         driver.findElement(By.name("password")).sendKeys("123456789");
         driver.findElement(By.name("submit")).click();
 
-        //driver.findElement(By.linkText("Manager")).click();
+        driver.findElement(By.xpath("/html/body/div[3]/form/input")).click();
+
+
 
 
 
