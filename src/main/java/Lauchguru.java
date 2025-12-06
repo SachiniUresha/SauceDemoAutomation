@@ -97,7 +97,43 @@ public class Lauchguru {
         driver.findElement(By.name("password")).sendKeys("123456789");
         driver.findElement(By.name("submit")).click();
 
+        //Log out
         driver.findElement(By.xpath("/html/body/div[3]/form/input")).click();
+
+
+
+        //------------------Payment Gateway-------------------
+
+
+        driver.get("https://demo.guru99.com/payment-gateway/purchasetoy.php");
+
+        Select quantity = new Select(driver.findElement(By.name("quantity")));
+        quantity.selectByVisibleText("5");
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//*[@id=\"three\"]/div/form/div/div[8]/ul/li/input")).click();
+
+        driver.findElement(By.id("card_nmuber")).sendKeys("4690473913563512");
+        Thread.sleep(1000);
+
+        Select exmonth = new Select(driver.findElement(By.id("month")));
+        exmonth.selectByVisibleText("04");
+        Thread.sleep(1000);
+
+        Select exyear = new Select(driver.findElement(By.id("year")));
+        exyear.selectByVisibleText("2026");
+        Thread.sleep(1000);
+
+        driver.findElement(By.id("cvv_code")).sendKeys("179");
+        Thread.sleep(1000);
+
+        driver.findElement(By.name("submit")).click();
+
+
+
+
+
+
 
 
 
