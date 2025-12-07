@@ -1,8 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 
 
 public class Lauchguru {
@@ -105,13 +109,18 @@ public class Lauchguru {
         //------------------Payment Gateway-------------------
 
 
-        driver.get("https://demo.guru99.com/payment-gateway/purchasetoy.php");
+        //driver.get("https://demo.guru99.com/payment-gateway/purchasetoy.php");
+
+        driver.findElement(By.linkText("Payment Gateway Project")).click();
+        Thread.sleep(1000);
 
         Select quantity = new Select(driver.findElement(By.name("quantity")));
         quantity.selectByVisibleText("5");
         Thread.sleep(1000);
 
+        //driver.findElement(By.xpath("//*[@id=\"three\"]/div/form/div/div[8]/ul/li/input")).click();
         driver.findElement(By.xpath("//*[@id=\"three\"]/div/form/div/div[8]/ul/li/input")).click();
+        Thread.sleep(1000);
 
         driver.findElement(By.id("card_nmuber")).sendKeys("4690473913563512");
         Thread.sleep(1000);
@@ -130,37 +139,36 @@ public class Lauchguru {
         driver.findElement(By.name("submit")).click();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         //-------------Add New Customer-------------------
 
+        //driver.get("https://demo.guru99.com/telecom/index.html");
+
         //navigate to new customer page
-        //driver.findElement(By.linkText("New Customer")).click();
+        driver.findElement(By.linkText("Telecom Project")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.linkText("Add Customer")).click();
+        Thread.sleep(1000);
+
+        driver.findElement(By.xpath("//*[@id=\"main\"]/div/form/div/div[1]/label")).click();
 
         //Form Filling
-        //driver.findElement(By.name("name")).sendKeys("Sachini");
-        //driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input[2]")).click();
-        //driver.findElement(By.id("dob")).sendKeys("19042001");
-        //driver.findElement(By.name("addr")).sendKeys("225/B, Walawwatta, Kesbewa.");
-        //driver.findElement(By.name("city")).sendKeys("Piliyandala");
-        //driver.findElement(By.name("state")).sendKeys("Western");
-        //driver.findElement(By.name("pinno")).sendKeys("103000");
-        //driver.findElement(By.name("telephoneno")).sendKeys("0702838323");
-        //driver.findElement(By.name("emailid")).sendKeys("dsuweerakkody19@gmail.com");
-        //driver.findElement(By.name("sub")).click();
+        driver.findElement(By.id("fname")).sendKeys("Uresha");
+        Thread.sleep(1000);
+        driver.findElement(By.id("lname")).sendKeys("Perera");
+        Thread.sleep(1000);
+        driver.findElement(By.id("email")).sendKeys("dsuweerakk19@gmail.com");
+        Thread.sleep(1000);
 
+        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //WebElement addressBox = wait.until(
+                //ExpectedConditions.visibilityOfElementLocated(By.id("message"))
+        ///);
 
-
+        //driver.findElement(By.xpath("message")).sendKeys("//*[@id=\"message\"]");
+        Thread.sleep(1000);
+        driver.findElement(By.id("telephoneno")).sendKeys("0702838323");
+        Thread.sleep(1000);
+        driver.findElement(By.name("submit")).click();
 
 
     }
